@@ -135,3 +135,35 @@ angular.module('myApp', [])
 // injecting at run-time is something that angular does. angular is awesome becaue it takes care of all this for us.
 // $ is created on the fly, and it's not a service. whereas http is a service. angular just gives us magically.
 
+// angular handles this ugly process for us by making objects and injecting them for us when invoking the objects.
+
+// Remember our module?
+// the [] s a list of module dependencies
+angular.module('myApp', [])
+
+// Dependency injection: naming matters, order does not matter
+// How to handle minification?
+
+// filters allow us to make the data look good to the user, or even to manipulate the data
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
