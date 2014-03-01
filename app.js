@@ -1,24 +1,30 @@
 angular.module('myApp', [])
-.controller('HomeController', function($scope, $http) {
+.service('Reddit', function($http) {
 
-	$scope.user = {
-		name: 'Ari'
-	};
+	this.getArticles = function(subreddit) {
+			subreddit = subreddit || 'angularjs';
+
+			return $http({
+				method: 'JSONP',
+				url: 'http://www.reddit.com/r/' + subreddit + '.json',
+				params: {
+					'jsonp': 'JSON_CALLBACK' 
+				}
+			}).then(function(resp) {
+				return resp.data.data.children;
+			});
+
+		}
+})
+.controller('HomeController', function($scope, Reddit) {
+	$scope.user = { name: 'Ari' };
 
 	$scope.getArticles = function(subreddit) {
-		subreddit = subreddit || 'angularjs';
-
-	$http({
-		method: 'JSONP',
-		url: 'http://www.reddit.com/r/' + subreddit + '.json',
-		params: {
-			'jsonp': 'JSON_CALLBACK'   // traditionally would just be called something like 'callback'
-		}
-	}).then(function(resp) {
-		$scope.articles = resp.data.data.children;
-	});
+		Reddit.getArticles(subreddit)
+		.then(function(articles) {
+				$scope.articles = articles;	
+		});
 	}
 
-$scope.getArticles();
-
+	$scope.getArticles();
 });

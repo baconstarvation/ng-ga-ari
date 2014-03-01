@@ -147,8 +147,57 @@ angular.module('myApp', [])
 // filters allow us to make the data look good to the user, or even to manipulate the data
 
 
+// so how do we store data
+// for instance, how do we keep a user logged in through the lifecycle of our application?
+// how do we share data across the rest of the application?
 
 
+// Services
+// Singleton objects that persist for the lifecycle of the application
+// A container for like methods of data
+// if we change it, the change will be persistent throughout the whole app
+// services are good for containing like methods
+// if we want to grab reddit article s and show them across the app, we need to know how to talk to reddit to get those articles
+
+
+// Built In Services
+// Like ddirectives, angular comes packed with services and providers (a special type of service)
+// $http, $timeout, $sce(security), etc
+
+
+
+
+// Most important part of the class. Creating our own service ::
+
+// everything right now is the exact same underlying object. only a matter of preference
+// we can create services in a couple ways: most basic is creating a service using the service function --
+	// it takes arguments similar to the controller
+// the second argument is a constructor for that service. it would be run once and only once
+angular.module('myApp')
+.service('Flickr', function($http) {
+	this.getPhotos = function() {
+		// Deine getPhotos() function
+	}
+});
+// we ca also use the factory function. factory vs service is that the second function is that it expects to return an object,
+// which would represent the function 
+angular.module('myApp')
+.factory('Flickr', function($http) {
+	return {
+		getPhotos: function() {}
+	}
+});
+// last way to create a service: use provider
+// The provider() is the only type of service we can use in the config() block as [Name] provider
+angular.module('myApp')
+.provider('Flickr', function () {
+	var apiKey = '';
+	this.setApiKey = ke
+});
+// The config() function runs before our app is running and lets us set up the app.
+// The run() function is the first function to get run before any other part of our app.
+
+// NEVER USE THE $HTTP IN A CONTROLLER
 
 
 
