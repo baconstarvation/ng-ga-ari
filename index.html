@@ -9,9 +9,12 @@
 </head>
 <body>
 
-<div class="container">
-  <!-- Develop our stuff here -->
-</div>
+  <div class="container" ng-app-'myApp'>
+    <!-- Develop our stuff here -->
+    <div ng-controller='HomeController'>
+      <h1>Welcome back {{ user.name }}</h1>
+    </div>
+  </div>
 
   <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js'>
   </script>
