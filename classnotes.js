@@ -91,9 +91,29 @@ $scope.say = function(mag) {
 // execution environment: anything underneath this element will run in the 
 
 
+// Data
+// Clent side applications are only as exciting as the data they contain.
+// $http is a wrapper on the browser's XMLHttpRequest API
 
+// XHR requests are async
+// whenever you're writing an angular app don't use jquery
+// callback functions $.ajax
 
+// Promises
+// Rather than passing a callback function into the $http method to get called when the data returns, the $http object returns a promise.
+// The promise API
+promise
+.then(function(data) {
+	// called when no errors have occurred with data
+})
+.catch(function(err) {
+	// called when an error has occurred
+})
+.finally(function(data) {
+	// called always, regardless of the output result
+})
 
+// we'll be using jsonp to read from reddit
 
 
 

@@ -9,10 +9,19 @@
 </head>
 <body>
 
-  <div class="container" ng-app-'myApp'>
+  <div class="container" ng-app='myApp'>
     <!-- Develop our stuff here -->
     <div ng-controller='HomeController'>
       <h1>Welcome back {{ user.name }}</h1>
+      <ul>
+          <li class='article' ng-repeat="article in articles">
+            <h3> {{ article.data.title }}</h3>
+            <span> {{ article.data.ups }} </span>
+            <span>Created at {{ article.data.created }} </span>
+            <p> {{ article.data.url }}</p>
+          </li>
+      </ul>
+      <pre>{{ articles | json }}</pre>
     </div>
   </div>
 
