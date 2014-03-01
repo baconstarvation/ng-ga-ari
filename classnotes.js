@@ -115,6 +115,23 @@ promise
 
 // we'll be using jsonp to read from reddit
 
+// creating a promise
+// akin to creating an ajax call and resolving this thing
+// anything that is prefaced inside of angular with a dollar sign is just an indication that it comes built in angular by default as an object
+// ideally, if there are two dollar signs, you usually won't want to use it
 
+// How come we even call the $http object?
+// we're not writing assembly code in here.
+angular.module('myApp', [])
+.controller('HomeController', function($scope, $http) {
+});
 
+// Dependency Injection
+// Anytime we rely on a library we either: 
+// needs to find the dependency itself or
+// needs to be handled on the dependency
+
+// are we in testing mode or are we not in testing mode
+// injecting at run-time is something that angular does. angular is awesome becaue it takes care of all this for us.
+// $ is created on the fly, and it's not a service. whereas http is a service. angular just gives us magically.
 

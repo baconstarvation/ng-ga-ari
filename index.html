@@ -18,10 +18,9 @@
             <h3> {{ article.data.title }}</h3>
             <span> {{ article.data.ups }} </span>
             <span>Created at {{ article.data.created }} </span>
-            <p> {{ article.data.url }}</p>
+            <p><a ng-href="{{ article.data.url }}">{{ article.data.url }}</a></p>
           </li>
       </ul>
-      <pre>{{ articles | json }}</pre>
     </div>
   </div>
 
