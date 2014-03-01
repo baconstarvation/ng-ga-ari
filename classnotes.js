@@ -199,7 +199,10 @@ angular.module('myApp')
 
 // NEVER USE THE $HTTP IN A CONTROLLER
 
+// we dont have to load all of angular to use angular; we can simply use what we want to use
+// we dont have to use routing. to use it, we have to load the other module
 
+// we use a directive ng-view 
 
 
 

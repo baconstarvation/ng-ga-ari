@@ -1,4 +1,4 @@
-angular.module('myApp', [])
+angular.module('myApp', ['ngRoute'])
 .service('Reddit', function($http) {
 
 	this.getArticles = function(subreddit) {
@@ -16,8 +16,20 @@ angular.module('myApp', [])
 
 		}
 })
+.config(function($routeProvider) {
+	$routeProvider
+		.when('/:subreddit', {
+		// templateUrl: 'home.html',
+			template: '<h1>Hello {{user.name}} from the home route</h1>',
+			controller: 'HomeController'
+		})
+		.otherwise({
+			redirectTo: '/angularjs'
+		})
+})
 .controller('HomeController', function($scope, Reddit) {
-	$scope.user = { name: 'Ari' };
+	$scope.user = { name: 'baconator' };
+	var subreddit = $routeParams.id;
 
 	$scope.getArticles = function(subreddit) {
 		Reddit.getArticles(subreddit)
